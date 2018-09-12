@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Login e Cadastro</title>
+  <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+  <link rel='stylesheet' href='http://cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.3/animate.min.css'>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+          <ul class="tabs">
+            <li><a href="#" id="1">LOGIN</a></li>
+            <li><a href="#" id="2">CADASTRO</a></li>
+          </ul>
+      </div>
+      <div class="col-sm-12">
+        <div class="form row" id="login">
+          <div class="col-sm-12 container">
+             <div class="input">
+            <input class="main-form animated bounceInDown" type="text" name="usrname" placeholder=" EMAIL"/>
+             </div>
+            <div class="input">
+            <input class="main-form animated bounceInDown" type="password" name="password" placeholder=" SENHA"/>
+             </div>
+            <div class="input">
+            <input class="main-form btn animated bounceInDown" type="button" name="usrname" value = "ACESSAR"/>
+             </div>
+          </div>
+        </div>
+        <div class="form row" id="register" style="display: none;">
+          <div class="col-sm-12 container">
+            <div class="input">
+            <input class="main-form animated bounceInDown" type="text" name="name" placeholder=" NOME"/>
+             </div>
+             <div class="input">
+            <input class="main-form animated bounceInDown" type="text" name="usrname" placeholder=" EMAIL"/>
+             </div>
+            <div class="input">
+            <input class="main-form animated bounceInDown" type="password" name="password" placeholder=" SENHA"/>
+             </div>
+            <div class="input">
+            <input class="main-form btn animated bounceInDown" type="button" name="usrname" value = "SIGN UP"/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script  src="js/index.js"></script>
+</html>
