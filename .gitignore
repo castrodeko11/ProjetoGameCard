@@ -1,0 +1,3 @@
+#gitignore
+
+app_nodejs_padrao/node_modules/*   
