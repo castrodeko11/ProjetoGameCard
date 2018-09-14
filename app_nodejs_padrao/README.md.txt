@@ -17,7 +17,7 @@
 
 4 - abra dois prompts, em um digite mongod e dê Enter. No outro digite mongo e dê enter para iniciar a conexão com o banco de dados.
 
-5 - abra outro pormpt e vá até a pasta app_nodejs_padrao, digite 'npm install' e dê enter (fará que os módulos do node sejam instalados).
+5 - abra outro prompt e vá até a pasta app_nodejs_padrao, digite 'npm install' e dê enter (fará que os módulos do node sejam instalados).
 	após este passo, abra o projeto, e dentro da pasta 'app_nodejs_padrao' deve aparecer a nova pasta 'node_modules'.
 
 6-no mesmo prompt usado anteriormente, digite 'nodemon app' para iniciar o servidor local.
