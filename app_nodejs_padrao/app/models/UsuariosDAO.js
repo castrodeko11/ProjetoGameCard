@@ -39,9 +39,10 @@ UsuariosDAO.prototype.autenticar = function(dadosForm, req, res){
 
 			dadosForm.senha = senha_criptografada;
 
-			collection.find({usuario:dadosForm.usuario}).toArray(function(erro, user){
+			collection.find(dadosForm).toArray(function(erro, user){
 	
-				console.log(user[0]);
+				console.log(user);
+				console.log(dadosForm);
 				if(user[0] != undefined){
 
 					req.session.autorizado = true;
@@ -52,7 +53,7 @@ UsuariosDAO.prototype.autenticar = function(dadosForm, req, res){
 					if((req.session.autorizado) && (user[0].senha == dadosForm.senha)){
 
 					//Como é um método post, sempre dar redirect para não reenviar formulário
-					res.redirect('jogo');		
+					res.render('jogo');		
 					}	
 					console.log('Senha do db:  '+ user[0].senha+' X '+'\n'+'Senha inserida: '+dadosForm.senha);
 				}
