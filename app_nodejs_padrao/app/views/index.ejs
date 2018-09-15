@@ -42,6 +42,16 @@
 					</div>
 				<% } %>
 
+				
+				<%if(result.lenght < 0){%>
+					<div class="alert-danger" >
+						<strong>Atenção!</strong>
+						<ul>
+							<li>Usuário ou senha incorretos.</li>
+						</ul>
+					</div>
+
+				<%}%>
 				<% if((dadosForm.usuario != result.usuario) || (dadosForm.senha != result.senha)){ %>
 					<div class="alert-danger" >
 						<strong>Atenção!</strong>

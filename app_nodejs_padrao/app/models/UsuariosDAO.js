@@ -1,4 +1,4 @@
-// DAO - Data Access Object
+// DAO - Data Access Object000
 
 /* importar módulo do crypto */
 
@@ -39,28 +39,28 @@ UsuariosDAO.prototype.autenticar = function(dadosForm, req, res){
 
 			dadosForm.senha = senha_criptografada;
 
-			collection.find({usuario: dadosForm.usuario}).toArray(function(erro, user){
+			collection.find({usuario:dadosForm.usuario}).toArray(function(erro, user){
 	
 				console.log(user[0]);
-				if((user[0] != undefined) && (user[0].senha == dadosForm.senha)){
+				if(user[0] != undefined){
 
 					req.session.autorizado = true;
 
 					req.session.usuario = user[0].usuario;
 
-					var senha = user.senha;
-
-					console.log('Senha do db:  '+ user[0].senha+' X '+'\n'+'Senha inserida: '+dadosForm.senha);
-				}
-				if(req.session.autorizado){
+					var senha = user[0].senha;
+					if((req.session.autorizado) && (user[0].senha == dadosForm.senha)){
 
 					//Como é um método post, sempre dar redirect para não reenviar formulário
 					res.redirect('jogo');		
-				}else{
-					res.render('index',{validacao: {}, result: user[0], dadosForm: dadosForm});
+					}	
+					console.log('Senha do db:  '+ user[0].senha+' X '+'\n'+'Senha inserida: '+dadosForm.senha);
+				}
+				else if(user[0] == undefined){
+					res.render('index',{validacao: {}, result: {}, dadosForm: dadosForm});
 					req.session.autorizado = false;
 
-					console.log('Senha do db:  '+ user[0].senha+' X '+'\n'+'Senha inserida: '+dadosForm.senha);
+					//console.log('Senha do db:  '+ user[0].senha+' X '+'\n'+'Senha inserida: '+dadosForm.senha);
 				}
 			
 
