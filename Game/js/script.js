@@ -1,6 +1,8 @@
 (function(){
 	var images = [];
 
+	var flippedCards = [];
+
 	for(var i = 0;i < 16; i++){
 		var img = {
 			src:"img/"+ i +".jpg",
@@ -14,7 +16,8 @@
 	startGame();
 
 	function startGame(){
-		randomSort();
+		flippedCards = [];
+		images = randomSort(images);
 		var frontFaces = document.getElementsByClassName("front")
 
 		for(var i = 0; i < 16; i++){
@@ -27,24 +30,52 @@
 
 			frontFaces[i].style.background = "url('"+images[i].src+"')";
 			frontFaces[i].setAttribute("id",images[i].id);
-			console.log(frontFaces[i].id)
+			console.log(frontFaces[i].id);
 		}
 	}
 
-	function randomSort(){
+	function randomSort(oldArray){
 		//console.log(Math.floor(Math.random()*11));
 		//var arrTeste = ["banana","morango","maça"];
 		//console.log(arrTeste.indexOf("banana"));
+		var newArray = [];
 
+		while(newArray.length !== oldArray.length){
+			var i = Math.floor(Math.random()*oldArray.length);
+
+			if(newArray.indexOf(oldArray[i]) < 0){
+				newArray.push(oldArray[i]);
+
+			}
+
+		}
+
+		return newArray;
 
 	}
 	
 	function flipCard(){
-		var faces = this.getElementsByClassName("face");
-		//console.log(faces[0]);
-		faces[0].classList.toggle("flipped")
-		faces[1].classList.toggle("flipped")
-		//console.log(faces[0].classList)
+		if(flippedCards.length < 2){
+			var faces = this.getElementsByClassName("face");
 
+			if (faces[0].classList.length > 2){
+				return;
+
+			}
+		//console.log(faces[0]);
+			faces[0].classList.toggle("flipped")
+			faces[1].classList.toggle("flipped")
+		//console.log(faces[0].classList)
+		flippedCards.push(this);
+	}else{
+		console.log(flippedCards);
+		flippedCards[0].childNodes[1].classList.toggle("flipped");
+		flippedCards[0].childNodes[3].classList.toggle("flipped");
+		flippedCards[1].childNodes[1].classList.toggle("flipped");
+		flippedCards[1].childNodes[3].classList.toggle("flipped");
+
+		flippedCards = [];
 	}
+
+}
 }());
