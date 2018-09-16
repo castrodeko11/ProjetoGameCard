@@ -5,7 +5,8 @@
 }
 
 body{
-	background-color: #000
+	background-color: #000;
+	text-align: center;
 
 }
 
@@ -57,5 +58,36 @@ body{
 
 .card:hover{
 	box-shadow: 0 0 20px #000;
+}
 
-} 
+.face.flipped.match{
+
+	box-shadow: 0 0 10px #000;
+}
+
+#modalGameOver{
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0,0.5);
+	z-index: -2;
+}
+
+#imgGameOver{
+	width: 50%;
+	margin-top: 100px;
+
+}
+
+#imgMatchSign{
+	position: relative;
+	top: 3px;
+	transition-property: top,opacity;
+	transition-duration: 1.5s;
+	opacity: 1;
+	z-index: -1;
+	width: 15%;
+ 
+
+}
