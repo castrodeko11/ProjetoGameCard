@@ -59,7 +59,6 @@ UsuariosDAO.prototype.autenticar = function(dadosForm, req, res){
 				}
 				else if(user[0] == undefined){
 					res.render('index',{validacao: {}, result: {}, dadosForm: dadosForm});
-					req.session.autorizado = false;
 
 					//console.log('Senha do db:  '+ user[0].senha+' X '+'\n'+'Senha inserida: '+dadosForm.senha);
 				}

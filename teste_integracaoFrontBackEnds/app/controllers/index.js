@@ -1,10 +1,11 @@
 module.exports.index = function(application, req, res) {
-	res.render('index',{validacao:{}, result: {}, dadosForm:{}});
-
 	req.session.destroy(function(erro){
 		res.render('index', {validacao: {}, result: {}, dadosForm: {}});
+		console.log("Matou a sessão.")
 
 	});
+
+
 }
 
 module.exports.autenticar = function(application, req, res) {
