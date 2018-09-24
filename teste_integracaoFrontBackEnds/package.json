@@ -4,12 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-<<<<<<< HEAD
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon app.js"
-=======
-    "start": "app.js"
->>>>>>> andreOliveira
   },
   "author": "Jorge",
   "license": "ISC",
