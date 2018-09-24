@@ -1,12 +1,12 @@
 {
-  "name": "proheto_game_card",
+  "name": "projeto_game_card",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "app.js"
+    "start": "nodemon app.js"
   },
-  "author": "Jorge",
+  "author": "Lucas",
   "license": "ISC",
   "dependencies": {
     "assert": "^1.4.1",
