@@ -132,7 +132,28 @@
 	    			</ul>
 	    		</div>
 
-	    	<% } %>
+				<% } %>
+
+				<% if(result.senhaConfirm !== dadosForm.senha){ %>
+
+	    		<div class="alert-danger" > 
+	    			<strong>Atenção!</strong>
+	    			<ul>
+	    					<li>Senhas não são iguais</li>
+	    			</ul>
+	    		</div>
+
+				<% } %>
+				<% if(result.emailConfirm !== dadosForm.email){ %>
+
+	    		<div class="alert-danger" > 
+	    			<strong>Atenção!</strong>
+	    			<ul>
+	    					<li>E-mail de Confirmação não é igual ao e-mail informado</li>
+	    			</ul>
+	    		</div>
+
+				<% } %>
 
     <form class="col s12"action="/cadastrar" method="post" >
       <div class="form-container">
