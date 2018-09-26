@@ -9,20 +9,52 @@ function UsuariosDAO(connection){
 	this._connection = connection();
 }
 
-UsuariosDAO.prototype.inserirUsuario = function(usuario){
-	console.log(usuario);
+UsuariosDAO.prototype.inserirUsuario = function(dadosForm, res){
+	global.flag = 0;
+	console.log('Entrou no metodo de cadastro')
 	this._connection.open(function(erro, mongoclient){
 		mongoclient.collection("usuarios", function(erro, collection){
-			
-			var senha_criptografada = crypto.createHash("md5").update(usuario.senha).digest("hex");
+			//console.log('Flag= '+flag);
+			let query = {}; // fill in your query here
+  			let i = 0;
+			collection.count(query, function(erro, count){
+				collection.find({usuario: {$eq: dadosForm.usuario}}).toArray(function(err, result){
+					global.resp = result;
+					
+					console.log(result);
+				});
+				collection.find({email: {$eq: dadosForm.email}}).toArray(function(erro, userMail){
+					if((resp[0] == undefined) && (userMail[0] == undefined)){
+						var senha_criptografada = crypto.createHash("md5").update(dadosForm.senha).digest("hex");
+	
+						console.log(senha_criptografada);
+	
+						dadosForm.senha = senha_criptografada;
+	
+						collection.insert(dadosForm);
+	
+						res.render('index',{validacao: {}, result: {}, dadosForm: {}});
+;
+						console.log(dadosForm);
+					}
+					else if (resp[0] != undefined){
+						var userName = {
+							msg: "Nome de usuário já é usado. Por favor escolha outro"
+						}
+						res.render('cadastro', {validacao:{}, dadosForm: {},result:{}, user: userName, mail:{}});
 
-			console.log(senha_criptografada);
+					}else if (userMail[0] != undefined){
+						var userMailConf = {
+							msg: "Nome de usuário já é usado. Por favor escolha outro"
+						}
+						res.render('cadastro', {validacao:{}, dadosForm: {},result:{}, user: {}, mail: userMailConf});
 
-			usuario.senha = senha_criptografada;
+					}
+					
+				});
+				if (++i == count) {mongoclient.close();}
 
-			collection.insert(usuario);
-
-			mongoclient.close();
+			});
 		});
 	});
 

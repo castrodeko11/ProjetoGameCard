@@ -1,5 +1,5 @@
 module.exports.cadastro = function(application, req, res) {
-	res.render('cadastro', {validacao:{}, dadosForm: {},result:{}});
+	res.render('cadastro', {validacao:{}, dadosForm: {},result:{}, user:{},mail:{}});
 }
 
 
@@ -21,7 +21,7 @@ module.exports.cadastrar = function(application, req, res) {
 	}
 
 	if((erros) || (dadosForm.senha !== result.senhaConfirm) || (dadosForm.email !== result.emailConfirm)){
-		res.render('cadastro', {validacao : erros, dadosForm: dadosForm, result: result});
+		res.render('cadastro', {validacao : erros, dadosForm: dadosForm, result: result,user:{}});
 		console.log('Não Podemos cadastrar');
 		console.log(result);
 		console.log(dadosForm);
@@ -39,13 +39,9 @@ module.exports.cadastrar = function(application, req, res) {
 	console.log('Variável');
 	
 
-	usuariosDAO.inserirUsuario(dadosForm);
+	usuariosDAO.inserirUsuario(dadosForm, res);
 	
 	//geração dos parametros
-	//jogoDAO.gerarParametros(dadosForm.usuario, req, res);
-
-
-	res.render('index',{validacao: {}, result: {}, dadosForm: {}});
-					
+	//jogoDAO.gerarParametros(dadosForm.usuario, req, res);				
 					
 }
