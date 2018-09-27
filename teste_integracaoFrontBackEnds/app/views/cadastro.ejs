@@ -154,6 +154,27 @@
 	    		</div>
 
 				<% } %>
+				<% if(userName.length > 0){ %>
+					<%console.log("Username: "+userName)%>
+	    		<div class="alert-danger" > 
+	    			<strong>Atenção!</strong>
+	    			<ul>
+	    					<li><%=userName%></li>
+	    			</ul>
+	    		</div>
+
+				<% } %>
+				<% if(userMailConf.length > 0){ %>
+
+					<%console.log(userMailConf)%>
+	    		<div class="alert-danger" > 
+	    			<strong>Atenção!</strong>
+	    			<ul>
+	    					<li><%=userMailConf%></li>
+	    			</ul>
+	    		</div>
+
+				<% } %>
 
     <form class="col s12"action="/cadastrar" method="post" >
       <div class="form-container">

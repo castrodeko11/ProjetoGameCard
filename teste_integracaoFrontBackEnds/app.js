@@ -9,7 +9,7 @@ var PORT = process.env.PORT || 80;  /* para Windows */
 	app.listen(80, function() {
 		console.log("Servidor online na porta padrão: "+80)
 	}).on('error', function(err) {
-		if(err.errno === 'EADDRINUSE'){
+		if((err.errno === 'EADDRINUSE') || (err.errno === 'EACCES')){
 			app.listen(5000,function(){
 				console.log("Servidor online na porta: "+5000);
 		});

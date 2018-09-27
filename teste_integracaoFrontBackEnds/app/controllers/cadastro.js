@@ -1,5 +1,5 @@
 module.exports.cadastro = function(application, req, res) {
-	res.render('cadastro', {validacao:{}, dadosForm: {},result:{}, user:{},mail:{}});
+	res.render('cadastro', {validacao:{}, dadosForm: {},result:{}, userName:{},userMailConf:{}});
 }
 
 
@@ -21,7 +21,7 @@ module.exports.cadastrar = function(application, req, res) {
 	}
 
 	if((erros) || (dadosForm.senha !== result.senhaConfirm) || (dadosForm.email !== result.emailConfirm)){
-		res.render('cadastro', {validacao : erros, dadosForm: dadosForm, result: result,user:{}});
+		res.render('cadastro', {validacao : erros, dadosForm: dadosForm, result: result,userName:{},userMailConf:{}});
 		console.log('Não Podemos cadastrar');
 		console.log(result);
 		console.log(dadosForm);

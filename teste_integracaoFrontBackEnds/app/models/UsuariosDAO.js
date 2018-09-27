@@ -41,13 +41,13 @@ UsuariosDAO.prototype.inserirUsuario = function(dadosForm, res){
 						var userName = {
 							msg: "Nome de usuário já é usado. Por favor escolha outro"
 						}
-						res.render('cadastro', {validacao:{}, dadosForm: {},result:{}, user: userName, mail:{}});
+						res.render('cadastro', {validacao:{}, dadosForm: {},result:{}, userName: userName.msg, userMailConf:{}});
 
 					}else if (userMail[0] != undefined){
 						var userMailConf = {
-							msg: "Nome de usuário já é usado. Por favor escolha outro"
+							msg: "E-mail inserido é usado por um usuário existente"
 						}
-						res.render('cadastro', {validacao:{}, dadosForm: {},result:{}, user: {}, mail: userMailConf});
+						res.render('cadastro', {validacao:{}, dadosForm: {},result:{}, userName: {}, userMailConf: userMailConf.msg});
 
 					}
 					
