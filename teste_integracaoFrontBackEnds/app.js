@@ -6,11 +6,11 @@ var app = require('./config/server');
 var PORT = process.env.PORT || 80;  /* para Windows */
 
 	/* parametrizar a porta de escuta */
-	app.listen(80, function() {
+	app.listen(80, () => {
 		console.log("Servidor online na porta padrão: "+80)
-	}).on('error', function(err) {
+	}).on('error', (err) => {
 		if((err.errno === 'EADDRINUSE') || (err.errno === 'EACCES')){
-			app.listen(5000,function(){
+			app.listen(5000, () => {
 				console.log("Servidor online na porta: "+5000);
 		});
 	}
