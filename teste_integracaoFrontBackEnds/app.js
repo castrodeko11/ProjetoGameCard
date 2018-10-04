@@ -1,17 +1,17 @@
 /* importar as configurações do servidor */
 var app = require('./config/server');
-
+require('dotenv').config();
 //var PORT = process.env.PORT || 5000; /* para MacOSX
 
-var PORT = process.env.PORT || 80;  /* para Windows */
+const port = process.env.PORT || 5000;  /* para Windows */
 
 	/* parametrizar a porta de escuta */
-	app.listen(80, () => {
-		console.log("Servidor online na porta padrão: "+80)
+	app.listen(port, () => {
+		console.log("Servidor online na porta padrão: "+port)
 	}).on('error', (err) => {
 		if((err.errno === 'EADDRINUSE') || (err.errno === 'EACCES')){
-			app.listen(5000, () => {
-				console.log("Servidor online na porta: "+5000);
+			app.listen(port, () => {
+				console.log("Servidor online na porta: "+port);
 		});
 	}
 });
