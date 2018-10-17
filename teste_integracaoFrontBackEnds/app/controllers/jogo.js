@@ -18,12 +18,14 @@ module.exports.jogo = function(application, req , res) {
 
 	console.log(msg);
 
-	/*var usuario = req.session.usuario;
-	var casa = req.session.casa;
+	var usuario = req.session.usuario;
+	var id = req.session._id;
 	var connection = application.config.dbConnection;
 	var jogoDAO = new application.app.models.JogoDAO(connection);
 
-	jogoDAO.iniciaJogo(res, usuario, casa, msg);*/
+	console.log("_Id = "+id);
+
+	jogoDAO.finalizaJogo(req, res, usuario, id);
 
 
 }

@@ -1,6 +1,6 @@
 // DAO - Data Access Object
 
-var ObjectID = require('mongodb').ObjectID;
+var ObjectId = require('mongodb').ObjectId;
 
 function JogoDAO(connection){
 	//console.log('Entrou na função de conexão do jogo');
@@ -27,26 +27,31 @@ JogoDAO.prototype.gerarParametros = function(usuario){
 
 }
 
-JogoDAO.prototype.iniciaJogo = function(res, usuario, casa, msg){
-
-	//console.log('Inicia os parametros do jogo');
-
+JogoDAO.prototype.finalizaJogo = function(req,res, usuario, id){
+	//console.log(req.body.resultado);
 	this._connection.open(function(erro, mongoclient){
-		mongoclient.collection("jogo", function(erro, collection){
-
-			//find retorna cursor, toArray recupera cursor gerado pelo find e retorna dentro de um callback um array para ser usado na aplicação
-			collection.find({usuario:usuario}).toArray(function(erro, result){
-					//console.log(result[0]);
-
-					res.render('jogo', {img_casa : casa, jogo : result[0], msg: msg});
-
-				//Já que estamos validando igualdade, podemos passar o JSON completo para fazer a validação
-				//Segunda opção abaixo;
-				//collection.find({usuario:{$eq:dadosForm.usuario}, senha: {$eq:dadosForm.senha}});
-				mongoclient.close();
-			});
-		});
-	});
+		mongoclient.collection('usuarios', function(erro,collection){
+			collection.update(
+				{_id: ObjectId(id)},
+				{$push:  {
+							resultados:{
+								id_resultado: new ObjectId(),
+								resultado: req.body.resultado
+							}
+						}
+				},
+				{},
+				function(erro, records){
+					if(erro){
+						console.log(erro);
+					}else{
+						console.log(records);
+					}
+					mongoclient.close();
+				}
+			)
+		})
+	})
 }
 
 JogoDAO.prototype.acao = function(acao){

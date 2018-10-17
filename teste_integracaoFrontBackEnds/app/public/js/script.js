@@ -9,6 +9,8 @@
 
 	var imgMatchSign = document.querySelector("#imgMatchSign")
 
+	var status =  document.getElementById("vencer").getAttribute("value");
+
 
 	for(var i = 0;i < 16; i++){
 		var img = {
@@ -21,6 +23,7 @@
 	//console.log(images);
 	//console.log(images[0]);
 	startGame();
+	
 
 	function startGame(){
 		matches = 0;
@@ -48,6 +51,9 @@
 		}
 		modalGameOver.style.zIndex= -2;
 		modalGameOver.removeEventListener("click",startGame,false);
+		//alert(status.getAttribute("value").toString());
+		
+		
 	}
 
 	function randomSort(oldArray){
@@ -98,8 +104,13 @@
 				flippedCards = [];
 
 				if(matches ===8){
-
+					var xhttp = new XMLHttpRequest();
+					
+					xhttp.open("PUT", "/jogo", true);
+					xhttp.setRequestHeader("Content-type", "application/json");
+					xhttp.send(JSON.stringify({resultado:status}));
 					gameOver();
+					
 				}
 			}
 

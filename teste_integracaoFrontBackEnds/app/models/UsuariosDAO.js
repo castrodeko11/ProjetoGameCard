@@ -81,6 +81,11 @@ UsuariosDAO.prototype.autenticar = function(dadosForm, req, res){
 
 					req.session.usuario = user[0].usuario;
 
+					req.session._id = user[0]._id;
+
+					console.log("_id do usuario");
+					console.log(req.session.id = user[0]._id);
+
 					var senha = user[0].senha;
 					if((req.session.autorizado) && (user[0].senha == dadosForm.senha)){
 

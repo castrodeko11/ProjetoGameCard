@@ -26,6 +26,7 @@ app.use(express.static('./app/public'));
 
 /* configurar o middleware body-parser */
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 
 /* configurar o middleware express-validator */
 app.use(expressValidator());
@@ -36,6 +37,20 @@ app.use(expressSession({
 	resave : false, //se true, faz a sessão ser regravada no servidor mesmo sem modificação no request
 	saveUnintialized : false //se true, faz uma nova sessão ser criada sempre que a mesma for modificada
 }));
+
+//app.use(multiparty());
+
+app.use(function(req, res, next){
+
+	//res.setHeader("Access Control Allow-Origin", "http://localhost:80"); // para setar Access Control apenas para domínio específico
+	res.setHeader("Access-Control-Allow-Origin", "*"); // para setar Access Control para qualquer aplicação de qualquer domínio
+	res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE"); 
+	res.setHeader("Access-Control-Allow-Headers", "content-type"); 
+	res.setHeader("Access-Control-Allow-Credentials", true); 
+
+
+	next();
+});
 
 /* efetua o autoload das rotas, dos models e dos controllers para o objeto app *///executa funções e módulos automaticamente
 consign()
