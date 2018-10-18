@@ -84,10 +84,10 @@
 	<meta charset="UTF-8">
 	<title>Login</title>
 	<link rel="stylesheet" href="css/login.css">
-	<link rel="shortcut icon" href="img/login.ico" />
+	<link rel="shortcut icon" href="images/login.ico" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<script src="js/jquery-2.2.1.js"></script>
-	<script  src="js/login.js"></script>
+	<!-- <script  src="js/login.js"></script> -->
 	<script>
 			
 			$(document).ready(function() {
@@ -124,8 +124,8 @@
 			<form class="form" action="/autenticar" method="post">
 				<input type="text" placeholder="Usuário" name="usuario" >
 				<input type="password" placeholder="Senha" name="senha">
-				<button type="submit" id="login-button">Acessar</button>
-				<button type="button" class="btn btn-info" id="cadastro" >Cadastro</button>
+				<button type="submit" id="login-button" class = "btnLogin">Acessar</button>
+				<button type="button" id="cadastro" class = "btnLogin" >Cadastro</button>
 			</form>
 		</div>
 		<ul class="bg-bubbles">

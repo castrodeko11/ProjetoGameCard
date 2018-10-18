@@ -97,14 +97,15 @@
 <head>
   <meta charset="UTF-8">
   <title>Registro</title>
-  <link rel="stylesheet" href="css/registro.css">
+  
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css'>
-  <link rel="shortcut icon" href="img/cadastro.ico" />
+  <link rel="shortcut icon" href="images/cadastro.ico" />
   <script src="js/jquery-2.2.1.js"></script>
 
 
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
+	
+		<link rel="stylesheet" href="css/registro.css">
 		<script>
 			
 			$(document).ready(function() {
@@ -118,7 +119,9 @@
 <body>
  <div class="container white z-depth-2" id="container">
   <ul class="tabs teal">
-    <li class="tab col s3"><a class="white-text" href="#register">Registrar</a></li>
+    <li class="tab col s3"><a class="white-text" href="#register">
+			<p>Registrar</p>
+			</a></li>
   </ul>
   <div id="register" class="col s12">
   	<% if(validacao.length > 0){ %>
@@ -198,6 +201,7 @@
     </form>
   </div>
 </div>
+
 <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js'></script>
 </body>
 </html>
