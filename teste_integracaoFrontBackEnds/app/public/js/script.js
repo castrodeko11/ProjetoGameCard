@@ -125,7 +125,7 @@
 	
 		if (time ==0)
 		{	time++;
-			alert(time)
+			
 			startWatch();
 		}
 		
@@ -139,7 +139,6 @@
 //},1000);
 
 function gameOver(){
-	alert('ACO')
 	modalGameOver.style.zIndex = 10;
 	modalGameOver.addEventListener("click",startGame,false);
 
@@ -169,27 +168,26 @@ var display = document.getElementById("display"),
   start = document.getElementById("start"),
   interval = null,
   status = "stop",
-  seconds = 0,
+  seconds = 60,
   minutes = 0,
   hours = 0;
 
 // increments stopwatch and displays it
 function stopWatch() {
-  seconds++;
+  seconds--;
   if (seconds >= 60) {
     seconds = 0;
-    minutes++;
-    if (minutes >= 60) {
-      minutes = 0;
-      hours++;
+    minutes--;
+    if (minutes >= 0) {
+      minutes = 60;
+      hours--;
 	}
 
   }
   
   // Display stopwatch
   display.innerHTML =
-    (hours ? (hours > 9 ? hours : "0" + hours) : "00") +
-    ":" +
+
     (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") +
     ":" +
 	(seconds > 9 ? seconds : "0" + seconds);
