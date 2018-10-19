@@ -97,10 +97,14 @@ body{
 .btn {
     border: none;
     background-color: inherit;
-    padding: 14px 28px;
-    font-size: 16px;
+    font-size: 20px;
     cursor: pointer;
-    display: inline-block;
+	display: inline-block;
+	background-color: white;
+}
+
+.btnClose{
+	padding: 14px 28px
 }
 
 /* Green */
@@ -135,7 +139,7 @@ body{
 
 /* Red */
 .danger {
-	color: red;
+	/* color: red; */
 	margin-left: 79%;
 }
 

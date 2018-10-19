@@ -1,11 +1,19 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100);
 
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Source Sans Pro Light'), local('SourceSansPro-Light'), url(https://fonts.gstatic.com/s/sourcesanspro/v11/6xKydSBYKcSV-LCoeQqfX1RYOo3ik4zwlxdr.ttf) format('truetype');
+}
+
 body {
   background-color: #3e94ec;
   font-family: "Roboto", helvetica, arial, sans-serif;
   font-size: 16px;
   font-weight: 400;
   text-rendering: optimizeLegibility;
+      background-color: #009688 !important;
 }
 
 div.table-title {
@@ -140,4 +148,36 @@ td.text-center {
 
 td.text-right {
   text-align: right;
+}
+
+h3 {
+	
+	font-family: Brush Script MT !important;
+	text-transform: none !important;
+	font-size: 50px;
+}
+
+
+.btn {
+  border: none;
+  background-color: inherit;
+  font-size: 20px;
+  cursor: pointer;
+display: inline-block;
+background-color: white;
+}
+
+.btnBack{
+	padding: 14px 28px
+}
+
+/* Red */
+.back {
+	/* color: red; */
+	margin-left: 5%;
+}
+
+.back:hover {
+    background: black;
+    color: white;
 }
