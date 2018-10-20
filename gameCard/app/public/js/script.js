@@ -7,8 +7,7 @@
 	interval = null,
 	status = "stop",
 	seconds = 60,
-	minutes = 0,
-	hours = 0;
+	minutes = 0;
  	const _tempo = seconds;
  	var state = false;
   	var seg = 60;
@@ -178,14 +177,6 @@
 
 }
 
-// Usar para Limitaro tempo do usuário na página
-//window.setTimeout(function(){
-//	gameOver();
-
-//},1000);
-
-
-
 function matchCardSign(){
 	imgMatchSign.style.zIndex = 100;
 	imgMatchSign.style.top = 150+"px";
@@ -201,15 +192,11 @@ function matchCardSign(){
 	},10000);
 }
 
-// increments stopwatch and displays it
+
 
 
 
 }());
-
-// Cronometro
-
-// variables
 
 
   
@@ -242,8 +229,8 @@ function stopWatch() {
 		if (seconds >= 60) {
 			seconds = 0;
 			minutes--;
-			if (minutes >= 0) {
-			minutes = 60;
+			if (minutes >= 60) {
+			minutes = 0;
 			hours--;
 			}
 			
@@ -278,4 +265,4 @@ function startWatch() {
 	}
 	
 }
-// increments stopwatch and displays it
+

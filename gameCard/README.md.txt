@@ -1,7 +1,7 @@
 ﻿README
 
 
-1- instalar nodejs no computador, versão node-v10.9.0-x64;
+1- instalar nodejs no computador, versão node-v10.9.0-x64 e instalaro o nodemon 1.18.4;
 
 2- instalar MongoDB version: 3.2.9;
 
