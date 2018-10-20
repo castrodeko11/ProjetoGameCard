@@ -7,7 +7,7 @@
 
 body
 {
-  background: #f5f5f5;
+  background: linear-gradient(to bottom right, #50a3a2 0%, #53e3a6 100%);
 }
 
 h5
@@ -28,6 +28,7 @@ h5
 .tabs{
 
   margin-bottom: 2%;
+  background-color: black;
 }
 
 
@@ -105,16 +106,25 @@ button {
   outline: none;
 }
 
-button:hover {
-  color: white;
-  transform: scale(1.03);
-}
+
 
 .container {
   margin: 20% auto;
   text-align: center;
   background: #f9f9f9;
   border: 1px solid #606060;
-  
   width: 350px;
+}
+
+.btn{
+  padding: 4px 8px !important;
+  background-color: black !important;
+
+  
+}
+
+.btn:hover
+{
+
+  color: white !important;
 }
