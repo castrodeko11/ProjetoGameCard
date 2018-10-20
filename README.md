@@ -1,2 +1,0 @@
-# ProjetoGameCard
-Projeto da Faculdade
