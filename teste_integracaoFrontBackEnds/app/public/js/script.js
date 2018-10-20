@@ -1,5 +1,29 @@
+
+	// Cronometro
+
+	// variables
+	var display = document.getElementById("display"),
+	start = document.getElementById("start"),
+	interval = null,
+	status = "stop",
+	seconds = 60,
+	minutes = 0,
+	hours = 0;
+ 	const _tempo = seconds;
+ 	var state = false;
+  	var seg = 60;
+  	var xhttp = new XMLHttpRequest();
+  	var matches = 0;
+
+  function resetWatch() {
+	window.clearInterval(interval);
+	(seconds = 0), (minutes = 0), (hours = 0);
+	display.innerHTML = "00:00:00";
+	start.innerHTML = "Start";
+  }
+
 (function(){
-	var matches = 0;
+	
 
 	var images = [];
 
@@ -9,7 +33,8 @@
 
 	var imgMatchSign = document.querySelector("#imgMatchSign")
 
-	var status =  document.getElementById("vencer").getAttribute("value");
+	var status =  " ";
+	//document.getElementById("vencer").getAttribute("value");
 
 
 	for(var i = 0;i < 16; i++){
@@ -24,8 +49,10 @@
 	//console.log(images[0]);
 	startGame();
 	
+	
 
 	function startGame(){
+
 		matches = 0;
 
 		flippedCards = [];
@@ -106,17 +133,32 @@
 				matches++;
 
 				flippedCards = [];
-
-				if(matches ===8){
-					var xhttp = new XMLHttpRequest();
-					
+				var elapsed = '';
+				if((seconds > 0) && (matches === 8)){
+					status = "Venceu";
+					elapsed = 60-seconds;
 					xhttp.open("PUT", "/jogo", true);
 					xhttp.setRequestHeader("Content-type", "application/json");
-					xhttp.send(JSON.stringify({resultado:status}));
+					xhttp.send(JSON.stringify({resultado:status, tempo:elapsed}));
 					gameOver();
 					
+						
 				}
+				
+					if((matches!==8) && (seconds==0)){
+						elapsed = 60-seconds;
+						status = "Perdeu";
+						xhttp.open("PUT", "/jogo", true);
+						xhttp.setRequestHeader("Content-type", "application/json");
+						xhttp.send(JSON.stringify({resultado:status, tempo:elapsed}));
+						gameOver();
+						
+					}
+				
+				
+						
 			}
+			
 
 		}
 
@@ -129,15 +171,13 @@
 
 		flippedCards = [];
 	}
-
-
-
 	
-		if (time ==0)
+		if(time==0)
 		{	time++;
-			
 			startWatch();
+		
 		}
+		
 		
 
 }
@@ -169,38 +209,53 @@ function matchCardSign(){
 	},10000);
 }
 
+// increments stopwatch and displays it
+
+
+
 }());
 
 // Cronometro
 
 // variables
-var display = document.getElementById("display"),
-  start = document.getElementById("start"),
-  interval = null,
-  status = "stop",
-  seconds = 60,
-  minutes = 0,
-  hours = 0;
 
-// increments stopwatch and displays it
-function stopWatch() {
-  seconds--;
-  if (seconds >= 60) {
-    seconds = 0;
-    minutes--;
-    if (minutes >= 0) {
-      minutes = 60;
-      hours--;
-	}
 
-  }
   
-  // Display stopwatch
-  display.innerHTML =
-
-    (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") +
-    ":" +
-	(seconds > 9 ? seconds : "0" + seconds);
+function stopWatch() {
+	if(state==false){
+		if((seconds > 0)){
+			if(matches==8){
+				resetWatch();
+			}
+			
+			seconds--;
+			
+		}else{
+			//window.alert(tempo);
+			resetWatch();
+			state = true;
+			
+		}
+		if (seconds >= 60) {
+			seconds = 0;
+			minutes--;
+			if (minutes >= 0) {
+			minutes = 60;
+			hours--;
+			}
+			
+	
+		}
+		
+		// Display stopwatch
+		display.innerHTML =
+	
+			(minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") +
+			":" +
+			(seconds > 9 ? seconds : "0" + seconds);
+	}	
+	
+	
 
 }
 
@@ -208,20 +263,16 @@ function stopWatch() {
 
 // inicio stopwatch
 function startWatch() {
-  if (status === "stop") {
-    interval = window.setInterval(stopWatch, 1000);
-    start.innerHTML = "Pause";
-    status = "start";
-  } else {
-    window.clearInterval(interval);
-    start.innerHTML = "Start";
-    status = "stop";
-  }
+	
+	if (status === "stop") {
+		interval = window.setInterval(stopWatch, 1000);
+		start.innerHTML = "Pause";
+		status = "start";
+	} else {
+		window.clearInterval(interval);
+		start.innerHTML = "Start";
+		status = "stop";
+	}
+	
 }
-
-function resetWatch() {
-  window.clearInterval(interval);
-  (seconds = 0), (minutes = 0), (hours = 0);
-  display.innerHTML = "00:00:00";
-  start.innerHTML = "Start";
-}
+// increments stopwatch and displays it

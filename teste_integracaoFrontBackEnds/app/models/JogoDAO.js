@@ -36,7 +36,8 @@ JogoDAO.prototype.finalizaJogo = function(req,res, usuario, id){
 				{$push:  {
 							resultados:{
 								id_resultado: new ObjectId(),
-								resultado: req.body.resultado
+								resultado: req.body.resultado,
+								tempo: req.body.tempo
 							}
 						}
 				},

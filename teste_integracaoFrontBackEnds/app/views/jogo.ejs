@@ -7,10 +7,19 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="shortcut icon" href="img/card.ico" />
 	<link rel="stylesheet" href="css/style.css">
+	<script src="js/jquery-2.2.1.js"></script>
+	<script>
+			$(document).ready(function() {
+				$('#sair').click(function(){
+					window.location.href = '/sair';
+				});
+			});
+		
+		</script>
 </head>
 
 <body>
-	<button class="btn danger btnClose" style="color: black;">Sair</button>
+	<button id="sair" class="btn danger btnClose" style="color: black;">Sair</button>
 
 	
 	<div id="container">
