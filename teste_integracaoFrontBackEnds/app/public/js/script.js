@@ -22,6 +22,12 @@
 	start.innerHTML = "Start";
   }
 
+  function gameOver(){
+	modalGameOver.style.zIndex = 10;
+	modalGameOver.addEventListener("click",startGame,false);
+
+}
+
 (function(){
 	
 
@@ -136,6 +142,7 @@
 				var elapsed = '';
 				if((seconds > 0) && (matches === 8)){
 					status = "Venceu";
+					//window.alert("Venceu");
 					elapsed = 60-seconds;
 					xhttp.open("PUT", "/jogo", true);
 					xhttp.setRequestHeader("Content-type", "application/json");
@@ -144,17 +151,6 @@
 					
 						
 				}
-				
-					if((matches!==8) && (seconds==0)){
-						elapsed = 60-seconds;
-						status = "Perdeu";
-						xhttp.open("PUT", "/jogo", true);
-						xhttp.setRequestHeader("Content-type", "application/json");
-						xhttp.send(JSON.stringify({resultado:status, tempo:elapsed}));
-						gameOver();
-						
-					}
-				
 				
 						
 			}
@@ -188,11 +184,7 @@
 
 //},1000);
 
-function gameOver(){
-	modalGameOver.style.zIndex = 10;
-	modalGameOver.addEventListener("click",startGame,false);
 
-}
 
 function matchCardSign(){
 	imgMatchSign.style.zIndex = 100;
@@ -231,8 +223,19 @@ function stopWatch() {
 			seconds--;
 			
 		}else{
+			if(matches < 8){
+				state = true;
+				elapsed = 60-seconds;
+						
+					status = "Perdeu";
+					xhttp.open("PUT", "/jogo", true);
+					xhttp.setRequestHeader("Content-type", "application/json");
+					xhttp.send(JSON.stringify({resultado:status, tempo:elapsed}));
+					gameOver();
+				resetWatch();
+			}
 			//window.alert(tempo);
-			resetWatch();
+			//resetWatch();
 			state = true;
 			
 		}
