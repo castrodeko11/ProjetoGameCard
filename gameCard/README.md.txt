@@ -1,4 +1,5 @@
-﻿README
+﻿# ProjetoGameCard
+Projeto da Faculdade
 
 
 1- instalar nodejs no computador, versão node-v10.9.0-x64 e instalaro o nodemon 1.18.4;
