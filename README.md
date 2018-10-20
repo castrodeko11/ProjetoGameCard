@@ -1,4 +1,4 @@
-﻿# ProjetoGameCard
+# ProjetoGameCard
 Projeto da Faculdade
 
 
