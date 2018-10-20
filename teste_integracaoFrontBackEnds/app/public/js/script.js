@@ -76,12 +76,16 @@
 
 	}
 	
+	let time =0;
 	function flipCard(){
+		
 		if(flippedCards.length < 2){
+			
 			var faces = this.getElementsByClassName("face");
 
 			if (faces[0].classList.length > 2){
 				return;
+				
 
 			}
 		//console.log(faces[0]);
@@ -125,6 +129,17 @@
 
 		flippedCards = [];
 	}
+
+
+
+	
+		if (time ==0)
+		{	time++;
+			
+			startWatch();
+		}
+		
+
 }
 
 // Usar para Limitaro tempo do usuário na página
@@ -155,3 +170,58 @@ function matchCardSign(){
 }
 
 }());
+
+// Cronometro
+
+// variables
+var display = document.getElementById("display"),
+  start = document.getElementById("start"),
+  interval = null,
+  status = "stop",
+  seconds = 60,
+  minutes = 0,
+  hours = 0;
+
+// increments stopwatch and displays it
+function stopWatch() {
+  seconds--;
+  if (seconds >= 60) {
+    seconds = 0;
+    minutes--;
+    if (minutes >= 0) {
+      minutes = 60;
+      hours--;
+	}
+
+  }
+  
+  // Display stopwatch
+  display.innerHTML =
+
+    (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") +
+    ":" +
+	(seconds > 9 ? seconds : "0" + seconds);
+
+}
+
+
+
+// inicio stopwatch
+function startWatch() {
+  if (status === "stop") {
+    interval = window.setInterval(stopWatch, 1000);
+    start.innerHTML = "Pause";
+    status = "start";
+  } else {
+    window.clearInterval(interval);
+    start.innerHTML = "Start";
+    status = "stop";
+  }
+}
+
+function resetWatch() {
+  window.clearInterval(interval);
+  (seconds = 0), (minutes = 0), (hours = 0);
+  display.innerHTML = "00:00:00";
+  start.innerHTML = "Start";
+}

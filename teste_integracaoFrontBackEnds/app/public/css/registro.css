@@ -84,3 +84,37 @@ label{
   font-size: small !important;
 }
 
+
+
+h1 {
+  font-size: 4em;
+  font-family: "Roboto Mono", monospace;
+  margin: 20px;
+}
+
+button {
+  font-weight: 700;
+  border: 1px solid black;
+  background: #404040;
+  color: #e4e4e4;
+  border-radius: 5px;
+  padding: 8px;
+  font-size: 12px;
+  width: 70px;
+  margin: 0 20px;
+  outline: none;
+}
+
+button:hover {
+  color: white;
+  transform: scale(1.03);
+}
+
+.container {
+  margin: 20% auto;
+  text-align: center;
+  background: #f9f9f9;
+  border: 1px solid #606060;
+  
+  width: 350px;
+}
