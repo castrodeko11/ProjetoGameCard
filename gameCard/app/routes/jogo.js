@@ -1,6 +1,8 @@
 module.exports = function(application) {
 	application.put('/jogo', function(req, res){
+		console.log("\nput");
 		application.app.controllers.jogo.jogo(application, req, res);
+		console.log("fim put\n");
 		console.log(req.body.tempo);
 	});
 
