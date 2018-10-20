@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Recordes</title>
+  <link rel="stylesheet" href="css/recorde.css">
+  <script src="js/jquery-2.2.1.js"></script>
+  <script>
+			$(document).ready(function() {
+				$('#voltar').click(function(){
+					window.location.href = '/jogo';
+				});
+			});
+		
+		</script>
+
+</head>
+
+<body>
+
+  <body>
+    <button id="voltar" class="btn back btnBack">←</button>
+    <div class="table-title">
+      
+        <h3>Veja seus resultados, <%=nome%></h3>
+    </div>
+
+    <table class="table-fill">
+      <thead>
+        <tr>
+          <th class="text-left">Tempo</th>
+          <th class="text-left">Resultado</th>
+        </tr>
+      </thead>
+      <tbody class="table-hover">
+          <%if(resultados.length>0){%>
+            <%for(var i=0; i< resultados.length; i++){%>
+          <tr>     
+            <td class="text-left"><%=resultados[i].resultado %></td>
+            <td class="text-left"><%=resultados[i].tempo%> segundos</td>    
+          </tr>
+            <%}%>
+          <%}%>
+      </tbody>
+    </table>
+
+
+  </body>
+
+
+
+</body>
+
+</html>
