@@ -18,16 +18,17 @@ RecordesDAO.prototype.getDados = function(usuario, res){
                         var user = result[0].resultados;
                         console.log(user);
                         
-                        res.render('recorde',{resultados: result[0].resultados});
+                        res.render('recorde',{resultados: result[0].resultados, nome: result[0].nome});
                     }else{
                         result[0].resultados=[];
                         console.log("Add resultados\n"+result[0]);
-                        res.render('recorde',{resultados: result[0].resultados});
+                        res.render('recorde',{resultados: result[0].resultados, nome: result[0].nome});
                     }
                    
 
                 }
             })
+            mongoclient.close();
         })
     })
 }

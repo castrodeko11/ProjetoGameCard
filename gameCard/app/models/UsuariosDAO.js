@@ -90,7 +90,7 @@ UsuariosDAO.prototype.autenticar = function(dadosForm, req, res){
 					if((req.session.autorizado) && (user[0].senha == dadosForm.senha)){
 
 					//Como é um método post, sempre dar redirect para não reenviar formulário
-					res.render('jogo');		
+					res.redirect('jogo');		
 					}	
 					console.log('Senha do db:  '+ user[0].senha+' X '+'\n'+'Senha inserida: '+dadosForm.senha);
 				}

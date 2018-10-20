@@ -6,4 +6,7 @@ module.exports = function(application){
 	application.post('/autenticar', function(req, res){
 		application.app.controllers.index.autenticar(application, req, res);
 	});
+	application.get('/autenticar', function(req, res){
+		res.redirect('jogo');
+	});
 }
