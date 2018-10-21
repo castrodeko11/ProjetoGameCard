@@ -14,7 +14,8 @@ Projeto da Faculdade
 	abra 'Editar as variáveis de sistema do ambiente do sistema'=> Variáveis de Ambiente => ;
 	clique na variável path e selecione Editar => Novo => e cole o caminho que foi copiado => clique em Ok;
 
-	para testar abra o prompt de comando e digite 'mongo --version', se aparecer a versão, a variável foi setada com sucesso;
+	para testar abra o prompt de comando e digite 'mongo --version', se aparecer a versão, a 
+	variável foi setada com sucesso;
 
 4 - abra dois prompts, em um digite mongod e dê Enter. No outro digite mongo e dê enter para iniciar a conexão com o banco de dados.
 
