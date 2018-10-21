@@ -105,3 +105,26 @@ img{
 }
 
 
+.btnManual {
+  border: none;
+  background-color: inherit;
+  font-size: 20px;
+  cursor: pointer;
+display: inline-block;
+background-color: white;
+}
+.btnBackManual{
+	padding: 14px 28px
+}
+/* Red */
+.backManual {
+
+  margin-left: 5%;
+  position: absolute;
+}
+.backManual:hover {
+    background: black;
+    color: white;
+}
+
+
