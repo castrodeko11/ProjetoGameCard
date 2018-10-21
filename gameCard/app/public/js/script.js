@@ -27,9 +27,10 @@
 
 }
 
+
+
 (function(){
 	
-
 	var images = [];
 
 	var flippedCards = [];
@@ -87,6 +88,9 @@
 		
 		
 	}
+
+
+
 
 	function randomSort(oldArray){
 		//console.log(Math.floor(Math.random()*11));
@@ -248,8 +252,6 @@ function stopWatch() {
 	
 
 }
-
-
 
 // inicio stopwatch
 function startWatch() {
