@@ -7,7 +7,7 @@ function RecordesDAO(connection){
 	this._connection = connection();
 }
 
-RecordesDAO.prototype.getDados = function(usuario, res){
+RecordesDAO.prototype.getDados = function(usuario, nome, res){
     this._connection.open(function(err, mongoclient){
         mongoclient.collection('usuarios', function(err, collection){
             collection.find({usuario:usuario}).toArray(function(err, result){
@@ -18,11 +18,12 @@ RecordesDAO.prototype.getDados = function(usuario, res){
                         var user = result[0].resultados;
                         console.log(user);
                         
-                        res.render('recorde',{resultados: result[0].resultados, nome: result[0].nome});
+                        res.render('recorde',{resultados: result[0].resultados, nome: nome});
                     }else{
                         result[0].resultados=[];
                         console.log("Add resultados\n"+result[0]);
-                        res.render('recorde',{resultados: result[0].resultados, nome: result[0].nome});
+                        
+                        res.render('recorde',{resultados: result[0].resultados, nome: nome});
                     }
                    
 

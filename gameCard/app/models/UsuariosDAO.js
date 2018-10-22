@@ -83,6 +83,10 @@ UsuariosDAO.prototype.autenticar = function(dadosForm, req, res){
 
 					req.session._id = user[0]._id;
 
+					req.session.nome = user[0].nome;
+
+					console.log("Nome usuario: "+req.session.nome);
+
 					console.log("_id do usuario");
 					console.log(req.session.id = user[0]._id);
 
