@@ -4,4 +4,5 @@ node_modules/*
 .vscode/*
 node_modules
 .vscode
-ProjetoGameCard/bin/*
+
+./bin/*
