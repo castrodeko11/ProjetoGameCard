@@ -1,0 +1,147 @@
+<!--<!DOCTYPE HTML>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+
+		<title>Jogo da memória</title>
+		
+		
+		<script src="js/jquery-2.2.1.js"></script>
+
+		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	
+		
+		<link href="css/style.css" rel="stylesheet">
+
+		<script>
+			
+			$(document).ready(function() {
+				$('#cadastro').click(function(){
+					window.location.href = '/cadastro';
+				});
+			});
+
+		</script>
+
+	</head>
+
+	<body class="body-index">
+
+		<nav class="navbar navbar-default navbar-static-top">
+			<div class="container">
+				
+				<% if(validacao.length > 0){ %>
+					<div class="alert-danger" >
+						<strong>Atenção!</strong>
+						<ul>
+							<% for(var i=0;i < validacao.length; i++){ %>
+								<li><%=validacao[i].msg%></li>
+							<%}%>
+						</ul>
+					</div>
+				<% } %>
+
+				<% if((dadosForm.usuario != result.usuario) || (dadosForm.senha != result.senha)){ %>
+					<div class="alert-danger" >
+						<strong>Atenção!</strong>
+						<ul>
+							<li>Usuário ou senha incorretos.</li>
+						</ul>
+					</div>
+				<% } %>
+
+				<form class="form-inline form-entrar" action="/autenticar" method="post">
+					<div class="form-group">				
+						<input type="text" name="usuario" id="usuario" placeholder="Usuário" class="form-control" autocomplete="off" />
+						<input type="password" name="senha" id="senha" placeholder="Senha" class="form-control" />
+						<button type="submit" class="btn btn-success">Entrar</button>
+						<button type="button" class="btn btn-info" id="cadastro" >Cadastro</button>
+					</div>
+				</form>
+			</div>
+			
+		</nav>
+
+	    <div class="container">
+	    	<div class="row">
+	    		<div class="col-md-2"></div>
+
+	    		<div class="col-md-8">
+				</div>
+
+	    		<div class="col-md-2"></div>
+		    	</div>
+	    	</div>
+	    </div>	
+		
+	</body>
+</html>-->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<title>Login</title>
+	<link rel="stylesheet" href="css/login.css">
+	<link rel="shortcut icon" href="images/login.ico" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<script src="js/jquery-2.2.1.js"></script>
+	<!-- <script  src="js/login.js"></script> -->
+	<script>
+			
+			$(document).ready(function() {
+				$('#cadastro').click(function(){
+					window.location.href = '/cadastro';
+				});
+			});
+
+		</script>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="container">
+			<h1>Game</h1>
+			<% if(validacao.length > 0){ %>
+					<div class="alert-danger" >
+						<strong>Atenção!</strong>
+						<ul>
+							<% for(var i=0;i < validacao.length; i++){ %>
+								<li><%=validacao[i].msg%></li>
+							<%}%>
+						</ul>
+					</div>
+				<% } %>
+
+				<% if((dadosForm.usuario != result.usuario) || (dadosForm.senha != result.senha)){ %>
+					<div class="alert-danger" >
+						<strong>Atenção!</strong>
+						<ul>
+							<li>Usuário ou senha incorretos.</li>
+						</ul>
+					</div>
+				<% } %>
+			<form class="form" action="/autenticar" method="post">
+				<input type="text" placeholder="Usuário" name="usuario" >
+				<input type="password" placeholder="Senha" name="senha">
+				<button type="submit" id="login-button" class = "btnLogin">Acessar</button>
+				<button type="button" id="cadastro" class = "btnLogin" >Cadastro</button>
+			</form>
+		</div>
+		<ul class="bg-bubbles">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+</body>	
+</body>
+</html>
+

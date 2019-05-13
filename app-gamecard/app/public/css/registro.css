@@ -1,0 +1,180 @@
+
+Skip to content
+
+Pull requests
+Issues
+Marketplace
+Explore
+
+@castrodeko11
+
+0
+0
+
+0
+
+castrodeko11/ProjetoGameCard
+Code
+Issues 0
+Pull requests 0
+Projects 0
+Wiki
+Insights
+Settings
+ProjetoGameCard/gameCard/app/public/css/registro.css
+4f2388f 3 hours ago
+@castrodeko11 castrodeko11 Correções css e criação da tela manual
+@lucasd19971113
+@castrodeko11
+We found a potential security vulnerability in one of your dependencies.
+
+Only the owner of this repository can see this message.
+Manage your notification settings or learn more about vulnerability alerts.
+130 lines (97 sloc) 1.67 KB
+@font-face {
+font-family: 'Source Sans Pro';
+font-style: normal;
+font-weight: 300;
+src: local('Source Sans Pro Light'), local('SourceSansPro-Light'), url(https://fonts.gstatic.com/s/sourcesanspro/v11/6xKydSBYKcSV-LCoeQqfX1RYOo3ik4zwlxdr.ttf) format('truetype');
+}
+
+body
+{
+background: linear-gradient(to bottom right, #50a3a2 0%, #53e3a6 100%);
+overflow: hidden;
+}
+
+h5
+{
+font-weight: 400;
+}
+
+.container
+{
+margin-top: 80px;
+width: 400px;
+padding-right: 0px !important;
+padding-left: 0px !important;
+margin-right: auto;
+margin-left: auto;
+}
+
+.tabs{
+
+margin-bottom: 2%;
+background-color: black;
+}
+
+
+.tabs .indicator
+{
+background-color: #e0f2f1;
+height: 0%;
+opacity: 0.3;
+
+}
+
+.tabs .tab a {
+
+text-decoration: none;
+}
+
+
+.form-container
+{
+padding: 40px;
+padding-top: 10px;
+}
+
+.confirmation-tabs-btn
+{
+position: absolute;
+}
+
+#container
+{
+
+width: 30%;
+margin-top: 2%;
+}
+
+p {
+font-size: 35px;
+margin: 0 0 10px;
+font-family: Brush Script MT !important;
+text-align: center;
+line-height: 48px;
+text-transform: none;
+letter-spacing: .8px;
+
+}
+
+input {
+
+font-size: 15px !important;
+}
+
+label{
+
+font-size: small !important;
+}
+
+
+
+h1 {
+font-size: 4em;
+font-family: "Roboto Mono", monospace;
+margin: 20px;
+}
+
+button {
+font-weight: 700;
+border: 1px solid black;
+background: #404040;
+color: #e4e4e4;
+border-radius: 5px;
+padding: 8px;
+font-size: 12px;
+width: 70px;
+margin: 0 20px;
+outline: none;
+}
+
+
+
+.container {
+margin: 20% auto;
+text-align: center;
+background: #f9f9f9;
+border: 1px solid #606060;
+width: 350px;
+}
+
+.btn{
+padding: 4px 8px !important;
+background-color: black !important;
+
+
+}
+
+.btn:hover
+{
+
+color: white !important;
+}
+
+© 2018 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+
+Press h to open a hovercard with more details.

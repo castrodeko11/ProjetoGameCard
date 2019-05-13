@@ -1,0 +1,203 @@
+*{
+	margin: 0;	
+	padding: 0;
+
+}
+
+body{
+	background: #53e3a6 !important;
+	text-align: center;
+
+}
+
+#container{
+	width: 1325px;
+	height: 495px;
+	border: 1px solid #ffff;
+	position: relative;
+	margin: 10px auto;
+	border-radius: 10px;
+	background-color: #ffff;
+}
+
+.card{
+	width: 160px;
+	height: 240px;
+	position: absolute;
+	border-radius: 10px;
+	perspective: 600px;
+
+}
+
+.face{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	border-radius: 10px;
+	transition: all 1s;
+	backface-visibility: hidden;
+
+}
+
+.back{
+	background: url('../img/verso.jpg')
+}
+
+.back.flipped{
+	transform: rotateY(180deg);
+
+}
+
+.front{
+	transform: rotateY(-180deg);
+}
+
+.front.flipped{
+	transform: rotateY(0deg);
+}
+
+.card:hover{
+	box-shadow: 0 0 20px #000;
+}
+
+.face.flipped.match{
+
+	box-shadow: 0 0 0 4px #000;
+}
+
+#modalGameOver{
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	/* background-color: rgba(0, 0, 0,0.5); */
+	z-index: -2;
+}
+
+#imgGameOver{
+	width: 50%;
+	margin-top: 100px;
+
+}
+
+#imgMatchSign{
+	position: relative;
+	top: 3px;
+	transition-property: top,opacity;
+	transition-duration: 1.5s;
+	opacity: 1;
+	z-index: -1;
+	width: 15%;
+ 
+
+}
+
+/* Button */
+
+.btn {
+    border: none;
+    background-color: inherit;
+    font-size: 15px;
+    cursor: pointer;
+	display: inline-block;
+	background-color: white;
+}
+
+.btnClose{
+	padding: 14px 28px
+}
+
+/* Green */
+.closed {
+    color: green;
+}
+
+.success:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Blue */
+.info {
+    color: dodgerblue;
+}
+
+.info:hover {
+    background: #2196F3;
+    color: white;
+}
+
+/* Orange */
+.warning {
+    color: orange;
+}
+
+.warning:hover {
+    background: #ff9800;
+    color: white;
+}
+
+/* Red */
+.danger {
+	/* color: red; */
+	margin-left: 79%;
+}
+
+.danger:hover {
+    background: #f44336;
+    color: white;
+}
+
+/* Gray */
+.default {
+    color: black;
+}
+
+.default:hover {
+    background: #e7e7e7;
+}
+
+.btn-Default{
+
+
+	width: 45%;;
+	height: 40%;
+}
+
+
+
+h1 {
+	font-size: 4em;
+	font-family: "Roboto Mono", monospace;
+	margin: 20px;
+  }
+  
+  button {
+	font-weight: 700;
+	border: 1px solid black;
+	background: #404040;
+	color: #e4e4e4;
+	border-radius: 5px;
+	padding: 8px;
+	font-size: 10px;
+	width: 85px;
+	margin: 0 20px;
+	outline: none;
+  }
+  
+  button:hover {
+	color: white;
+	transform: scale(1.03);
+  }
+  
+
+  .container {
+    margin-left: 8.5% !important;
+    text-align: center;
+    background: #f9f9f9;
+    border: 1px solid #606060;
+    padding: 10px;
+    width: 350px;
+    margin-top: -3%;
+}
+  
